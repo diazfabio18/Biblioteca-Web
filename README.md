@@ -11,8 +11,6 @@ _Software necesario para la implementación de esta aplicación_
 
 ## Técnologías implementadas 🛠️
 
-_Usadas en este proyecto: _
-
 * [Spring Boot](https://spring.io/projects/spring-boot) - El framework para autoconfiguracion de Server y dependencias
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 * [Hibernate](https://hibernate.org/) - El framework para mapeo ORM
