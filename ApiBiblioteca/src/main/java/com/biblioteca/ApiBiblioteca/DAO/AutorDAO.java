@@ -12,8 +12,8 @@ public interface AutorDAO {
 	
 	//CREATE
 	//guardar en la base de datos
-	public void Guardar(Autor autor,Libro libro);
-	
+	public void Guardar(Autor autor);
+	public void Guardar(Libro libro);
 	//READ
 	//Listo todos los usuarios
 	public List<Autor> findAll();

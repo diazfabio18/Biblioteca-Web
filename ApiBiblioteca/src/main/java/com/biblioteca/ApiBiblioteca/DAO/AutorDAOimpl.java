@@ -19,12 +19,18 @@ public class AutorDAOimpl implements AutorDAO {
 	private EntityManager manager;
 	
 	@Override
-	public void Guardar(Autor autor, Libro libro) {
+	public void Guardar(Autor autor) {
+		// TODO Auto-generated method stub
+		Session actual = manager.unwrap(Session.class);
+		
+		actual.save(autor);
+	}
+	@Override
+	public void Guardar(Libro libro) {
 		// TODO Auto-generated method stub
 		Session actual = manager.unwrap(Session.class);
 		
 		actual.save(libro);
-		actual.save(autor);
 	}
 
 	@Override
@@ -75,6 +81,11 @@ public class AutorDAOimpl implements AutorDAO {
 		
 		consulta.setParameter("Id_autor", id);
 		consulta.executeUpdate();
+	}
+	
+	public AutorDAOimpl()
+	{
+		
 	}
 
 }

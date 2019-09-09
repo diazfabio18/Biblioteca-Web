@@ -3,9 +3,8 @@ package com.biblioteca.ApiBiblioteca.Entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,15 +12,14 @@ import javax.persistence.Table;
 public class Libro {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "Id_libro")
 	private int id_libro;
 	
 	@Column(name = "Titulo")
 	private String titulo;
 	
-	@ManyToOne
-	@JoinColumn(name = "Id_autor")
+	
 	private Autor autor;
 
 	public int getId_libro() {

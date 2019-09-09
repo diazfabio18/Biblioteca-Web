@@ -3,10 +3,13 @@ package com.biblioteca.ApiBiblioteca.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,7 +18,7 @@ import javax.persistence.Table;
 public class Autor {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "Id_autor")
 	private int id_autor;
 	
@@ -25,7 +28,8 @@ public class Autor {
 	@Column(name = "Nacionalidad")
 	private String nacionalidad;
 	
-	@OneToMany(mappedBy = "autor")
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Id_libro", referencedColumnName = "Id_autor")
 	private List<Libro> libros = new ArrayList<>();
 
 	public int getId_autor() {
