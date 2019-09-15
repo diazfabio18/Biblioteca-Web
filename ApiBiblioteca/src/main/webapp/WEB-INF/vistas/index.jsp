@@ -10,28 +10,23 @@
 <body>
 
 <form action="/users" method ="POST">
-
-  <div class="form-group">
+<div class="form-group">
     <label for="exampleInputEmail1">Autor</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="autor">
+    <input type="text" class="form-control" id="autorE" aria-describedby="emailHelp" placeholder="autor">
     
   </div>
   
   <div class="form-group">
     <label for="exampleInputEmail1">Nacionalidad</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ej: arg">
+    <input type="text" class="form-control" id="nacionE" aria-describedby="emailHelp" placeholder="ej: arg">
     
   </div>
-  
   <div class="form-group">
-    <label for="exampleInputPassword1">Libro</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="libro">
+    <label for="exampleInputPassword1">Librossz</label>
+    <input type="text" class="form-control" id="libroE" name="libroE" placeholder="libro">
   </div>
   
-  <div class="form-group">
-    <label for="exampleInputPassword1">Titulo de Libro</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="libro">
-  </div>
+
   
   <button type="submit" class="btn btn-primary">Enviar</button>
   

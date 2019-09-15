@@ -18,8 +18,8 @@ import javax.persistence.Table;
 public class Autor {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "Id_autor")
+	@Column(name = "id_autor")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_autor;
 	
 	@Column(name = "Nombre")
@@ -28,8 +28,8 @@ public class Autor {
 	@Column(name = "Nacionalidad")
 	private String nacionalidad;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Id_libro", referencedColumnName = "Id_autor")
+	@OneToMany(mappedBy="autor", cascade = CascadeType.ALL)
+	//@JoinColumn(name = "id_libro", referencedColumnName = "id_autor")
 	private List<Libro> libros = new ArrayList<>();
 
 	public int getId_autor() {

@@ -1,25 +1,33 @@
 package com.biblioteca.ApiBiblioteca.Entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "LIBRO")
+@Table(name = "Libro")
 public class Libro {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "Id_libro")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_libro")
 	private int id_libro;
 	
-	@Column(name = "Titulo")
+	@Column(name = "titulo")
+	@JsonProperty("libroE")
 	private String titulo;
 	
 	
+	@ManyToOne
+	@JoinColumn(name = "id_autor")
 	private Autor autor;
 
 	public int getId_libro() {

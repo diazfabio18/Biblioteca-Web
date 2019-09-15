@@ -1,15 +1,19 @@
 package com.biblioteca.ApiBiblioteca.Controller;
 
-import javax.websocket.server.PathParam;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.ApiBiblioteca.Entity.Autor;
 import com.biblioteca.ApiBiblioteca.Entity.Libro;
 import com.biblioteca.ApiBiblioteca.Service.AutorService;
+
 
 
 
@@ -50,17 +54,29 @@ public class AutorRestController {
 		//public Autor addUser(@RequestBody Autor user) {
 		//public Autor addUser(@Valid @RequestBody Autor user, @Valid @RequestBody Libro libro)
 		
-		@PostMapping("/users")
+		//@PostMapping("/users")
+		@GetMapping("/users/{name}/{nac}")
 		
-		public Autor addUser(@PathParam("autorE") String name,@PathParam("nacionE") String nacion,@PathParam("libroE") String lib)
+		//public Autor addUser(@PathParam("autorE") String name,@PathParam("nacionE") String nacion,@PathParam("libroE") String lib)
+		//public Autor addUser(@Valid @RequestBody Libro libro)
+		public Autor update(@PathVariable("name") final String name, @PathVariable("nac") final String nacion)
 		{
-			Autor user = new Autor(5,name,nacion);
-			Libro libro = new Libro(5,lib,user);
 			
-			
+			//Autor user = new Autor();
+			//user.setNombre(name);
+			//user.setNacionalidad(nacion);
+			//Libro libro = new Libro();
+			//libro.setTitulo(lib);
+			//libro.setAutor(user);
+			 
+			Autor user = new Autor();
+			//user = libro.getAutor();
 			//Este metodo guardará al usuario enviado
+			//userService.save(user);
+			user.setNombre(name);
+			user.setNacionalidad(nacion);
+			
 			userService.save(user);
-			userService.save(libro);
 			return user;
 			
 		}

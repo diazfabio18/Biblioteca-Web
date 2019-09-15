@@ -23,7 +23,7 @@ public class AutorDAOimpl implements AutorDAO {
 		// TODO Auto-generated method stub
 		Session actual = manager.unwrap(Session.class);
 		
-		actual.save(autor);
+		actual.saveOrUpdate(autor);
 	}
 	@Override
 	public void Guardar(Libro libro) {
