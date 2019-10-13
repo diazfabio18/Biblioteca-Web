@@ -90,7 +90,7 @@ public class AutorRestController {
 			
 		}
 		
-		/* *************** ELIMINAR AUTOR*************** */
+		/* *************** ELIMINAR AUTOR*************** */ 
 		@GetMapping("users/delete/{userId}")
 		public List<Autor> deteteUser(@PathVariable("userId") int autorId) 
 		{
