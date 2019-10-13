@@ -1,5 +1,7 @@
 package com.biblioteca.ApiBiblioteca.Controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,24 +31,29 @@ public class AutorRestController {
 
 		/*Este método se hará cuando por una petición GET (como indica la anotación) se llame a la url 
 		http://127.0.0.1:8080/api/users*/
-		/*@GetMapping("/users")
-		public List<User> findAll(){
+		
+		/* ************ LISTA DE USUARIOS ***************** */
+		@GetMapping("/users")
+		public List<Autor> findAll(){
 			//retornará todos los usuarios
 			return userService.findAll();
-		}*/
+		}
 		
 		/*Este método se hará cuando por una petición GET (como indica la anotación) se llame a la url + el id de un usuario
 		http://127.0.0.1:8080/api/users/1*/
-		/*@GetMapping("/users/{userId}")
-		public User getUser(@PathVariable int userId){
-			User user = userService.findById(userId);
+		
+		/* ********** BUSCADOR DE AUTOR POR ID**************** */
+		@GetMapping("/users/{userId}")
+		public Autor getUser(@PathVariable("userId") final int autorId)
+		{
+			Autor autor = userService.findById(autorId);
 			
-			if(user == null) {
-				throw new RuntimeException("User id not found -"+userId);
+			if(autor == null) {
+				throw new RuntimeException("User id not found -"+ autorId);
 			}
 			//retornará al usuario con id pasado en la url
-			return user;
-		}*/
+			return autor;
+		}
 		
 		/*Este método se hará cuando por una petición POST (como indica la anotación) se llame a la url
 		http://127.0.0.1:8080/api/users/  */
@@ -55,31 +62,24 @@ public class AutorRestController {
 		//public Autor addUser(@Valid @RequestBody Autor user, @Valid @RequestBody Libro libro)
 		
 		//@PostMapping("/users")
-		@GetMapping("/users/{name}/{nac}")
 		
 		//public Autor addUser(@PathParam("autorE") String name,@PathParam("nacionE") String nacion,@PathParam("libroE") String lib)
 		//public Autor addUser(@Valid @RequestBody Libro libro)
+		
+		/* ********************* Insercion nuevo Autor*********************** */
+		@GetMapping("/users/{name}/{nac}")
 		public Autor update(@PathVariable("name") final String name, @PathVariable("nac") final String nacion)
 		{
 			
-			//Autor user = new Autor();
-			//user.setNombre(name);
-			//user.setNacionalidad(nacion);
-			//Libro libro = new Libro();
-			//libro.setTitulo(lib);
-			//libro.setAutor(user);
-			 
-			Autor user = new Autor();
-			//user = libro.getAutor();
-			//Este metodo guardará al usuario enviado
-			//userService.save(user);
-			user.setNombre(name);
-			user.setNacionalidad(nacion);
+			Autor user = new Autor(); //Creo un nuevo Autor
+			user.setNombre(name); //Seteo su nombre con el argumento extraido de GetMapping
+			user.setNacionalidad(nacion); //Seteo su nacionalidad con el argumento extraido de GetMapping
 			
-			userService.save(user);
+			userService.save(user); //Guardo el autor llamando a un servicio del objeto userService
 			return user;
 			
 		}
+		
 		/*Este método se hará cuando por una petición PUT (como indica la anotación) se llame a la url
 		http://127.0.0.1:8080/api/users/  */
 		/*@PutMapping("/users")
@@ -94,18 +94,22 @@ public class AutorRestController {
 		
 		/*Este método se hará cuando por una petición DELETE (como indica la anotación) se llame a la url + id del usuario
 		http://127.0.0.1:8080/api/users/1  */
-		/*@DeleteMapping("users/{userId}")
-		public String deteteUser(@PathVariable int userId) {
+		
+		@GetMapping("users/delete/{userId}")
+		public List<Autor> deteteUser(@PathVariable("userId") int autorId) 
+		{
+			Autor autor = userService.findById(autorId);
 			
-			User user = userService.findById(userId);
-			
-			if(user == null) {
-				throw new RuntimeException("User id not found -"+userId);
+			if(autor == null) {
+				throw new RuntimeException("User id not found -"+autorId);
 			}
 			
-			userService.deleteById(userId);
+			//problemas
+			userService.deleteById(autorId);
 			
 			//Esto método, recibira el id de un usuario por URL y se borrará de la bd.
-			return "Deleted user id - "+userId;
-		}*/
+			//return "Deleted user id - "+autorId;
+			
+			return userService.findAll();
+		}
 }

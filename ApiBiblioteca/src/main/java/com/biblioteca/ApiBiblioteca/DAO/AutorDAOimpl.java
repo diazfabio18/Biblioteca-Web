@@ -74,13 +74,17 @@ public class AutorDAOimpl implements AutorDAO {
 	@Override
 	public void borrar(int id) {
 		// TODO Auto-generated method stub
-		Session actual = manager.unwrap(Session.class);
+		Session actual = manager.unwrap(Session.class); //bien
 		
-		@SuppressWarnings("unchecked")
-		Query<Autor> consulta = actual.createQuery("delete from Autor where id=:Id_autor");
+		/*@SuppressWarnings("unchecked")
+		Query<Autor> consulta = actual.createQuery("delete Autor where id_autor = :id");*/
 		
-		consulta.setParameter("Id_autor", id);
-		consulta.executeUpdate();
+		//consulta.setParameter("id", id);
+		//consulta.executeUpdate();
+		actual.beginTransaction();
+		Autor autor = (Autor) actual.get(Autor.class, id);
+		actual.delete(autor); 
+		actual.getTransaction().commit();
 	}
 	
 	public AutorDAOimpl()
