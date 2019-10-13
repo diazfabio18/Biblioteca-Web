@@ -11,7 +11,7 @@ _Software necesario para la implementación de esta aplicación_
 
 ## Técnologías implementadas 🛠️
 
-* [Spring Boot](https://spring.io/projects/spring-boot) - El framework para autoconfiguracion de Server y dependencias
+* [Spring Boot 4](https://spring.io/projects/spring-boot) - El framework para autoconfiguracion de Server y dependencias
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
 * [Hibernate](https://hibernate.org/) - El framework para mapeo ORM
 * [REST](https://spring.io/guides/gs/rest-service/) - Servicios para ser consumidos por el Front-End
@@ -22,13 +22,14 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 
 * **Fabio Díaz** - *Desarrollo completo* - [Perfil](https://github.com/diazfabio18)
 
+## Estado Actual 🛠️
+
+* Metodos get Servicios REST funcionando para entidad Autor
+* Correción en metodo borrar de capa Model
+
 ## Proximamente 📌
 
 * Implementación de servicio y puesta en marcha con JSON
 * Implementación Front-End con Boostratp 4 y Angular 6
 * Expansión a mas de un tipo de DBMS
 * Puesta en producción
-
-## Agradecimientos 🎁
-
-_Agradezo a mis familiares por el apoyo en este proyecto personal._ 😊
