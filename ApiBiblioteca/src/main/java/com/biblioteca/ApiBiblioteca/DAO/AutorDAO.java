@@ -21,6 +21,9 @@ public interface AutorDAO {
 	//buscar usuario por id
 	public Autor findById(int id);
 	
+	//buscar usuario por nombre
+		public Autor findByName(String name);
+	
 	//UPDATE
 	public void Actualizar(Autor autor);
 	

@@ -50,6 +50,19 @@ public class AutorRestController {
 			return autor;
 		}
 		
+		@GetMapping("/users/search/{userName}")
+		public Autor getUser(@PathVariable("userName") final String autor_name)
+		{
+			Autor autor = userService.findByName(autor_name);
+			
+			if(autor == null) {
+				throw new RuntimeException("User id not found -"+ autor_name);
+			}
+			
+			//retornará al usuario con id pasado en la url
+			return autor;
+		}
+		
 		/*Este método se hará cuando por una petición POST (como indica la anotación) se llame a la url
 		http://127.0.0.1:8080/api/users/  */
 		//@PostMapping("/users")

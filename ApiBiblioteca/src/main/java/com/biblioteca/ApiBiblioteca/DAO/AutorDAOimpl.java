@@ -55,6 +55,18 @@ public class AutorDAOimpl implements AutorDAO {
 		
 		return autor;
 	}
+	
+	@Override
+	public Autor findByName(String name) 
+	{	
+		Session actual = manager.unwrap(Session.class);
+		
+		Query query= actual.createQuery("from Autor where nombre= :name");
+		query.setParameter("name", name);
+		Autor autor = (Autor) query.uniqueResult();
+		
+		return autor;
+	}
 
 	@Override
 	public void Actualizar(Autor autor) {

@@ -26,6 +26,12 @@ public class AutorServiceImpl implements AutorService {
 		Autor autor = userDAO.findById(id);
 		return autor;
 	}
+	
+	@Override
+	public Autor findByName(String name) {
+		Autor autor = userDAO.findByName(name);
+		return autor;
+	}
 
 	@Override
 	public void save(Autor autor) {
