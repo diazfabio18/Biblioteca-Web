@@ -25,12 +25,9 @@ import com.biblioteca.ApiBiblioteca.Service.AutorService;
 
 public class AutorRestController {
 
-	//Inyectamos el servicio para poder hacer uso de el
+		//Inyectamos el servicio para poder hacer uso de el
 		@Autowired
 		private AutorService userService;
-
-		/*Este método se hará cuando por una petición GET (como indica la anotación) se llame a la url 
-		http://127.0.0.1:8080/api/users*/
 		
 		/* ************ LISTA DE USUARIOS ***************** */
 		@GetMapping("/users")
@@ -38,9 +35,6 @@ public class AutorRestController {
 			//retornará todos los usuarios
 			return userService.findAll();
 		}
-		
-		/*Este método se hará cuando por una petición GET (como indica la anotación) se llame a la url + el id de un usuario
-		http://127.0.0.1:8080/api/users/1*/
 		
 		/* ********** BUSCADOR DE AUTOR POR ID**************** */
 		@GetMapping("/users/{userId}")
@@ -51,6 +45,7 @@ public class AutorRestController {
 			if(autor == null) {
 				throw new RuntimeException("User id not found -"+ autorId);
 			}
+			
 			//retornará al usuario con id pasado en la url
 			return autor;
 		}
@@ -66,7 +61,7 @@ public class AutorRestController {
 		//public Autor addUser(@PathParam("autorE") String name,@PathParam("nacionE") String nacion,@PathParam("libroE") String lib)
 		//public Autor addUser(@Valid @RequestBody Libro libro)
 		
-		/* ********************* Insercion nuevo Autor*********************** */
+		/* ********************* INSERCIÓN NUEVO AUTOR*********************** */
 		@GetMapping("/users/{name}/{nac}")
 		public Autor update(@PathVariable("name") final String name, @PathVariable("nac") final String nacion)
 		{
@@ -80,21 +75,22 @@ public class AutorRestController {
 			
 		}
 		
-		/*Este método se hará cuando por una petición PUT (como indica la anotación) se llame a la url
-		http://127.0.0.1:8080/api/users/  */
-		/*@PutMapping("/users")
-		public User updateUser(@RequestBody User user) {
+		/* ********************* INSERCIÓN NUEVO LIBRO*********************** */
+		@GetMapping("/libro/{titulo}/{id_autor}")
+		public Autor updateLibro(@PathVariable("titulo") final String tit, @PathVariable("id_autor") final int id)
+		{
 			
-			userService.save(user);
+			Libro lib = new Libro(); //Creo un nuevo Libro
+			lib.setTitulo(tit); //Seteo su nombre con el argumento extraido de GetMapping
+			Autor autor = getUser(id);
+			lib.setAutor(autor); //Seteo su nacionalidad con el argumento extraido de GetMapping
 			
-			//este metodo actualizará al usuario enviado
+			userService.save(lib); //Guardo el autor llamando a un servicio del objeto userService
+			return autor;
 			
-			return user;
-		}*/
+		}
 		
-		/*Este método se hará cuando por una petición DELETE (como indica la anotación) se llame a la url + id del usuario
-		http://127.0.0.1:8080/api/users/1  */
-		
+		/* *************** ELIMINAR AUTOR*************** */
 		@GetMapping("users/delete/{userId}")
 		public List<Autor> deteteUser(@PathVariable("userId") int autorId) 
 		{
