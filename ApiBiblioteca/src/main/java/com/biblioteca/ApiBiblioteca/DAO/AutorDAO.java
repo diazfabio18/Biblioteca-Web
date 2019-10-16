@@ -26,6 +26,8 @@ public interface AutorDAO {
 	
 	//buscar usuario por nombre
 		public Autor findByName(String name);
+		
+		public Libro findByNameLibro(String name);
 	
 	//UPDATE
 	public void Actualizar(Autor autor);
@@ -33,4 +35,6 @@ public interface AutorDAO {
 	//DELETE
 	//borrar usuario
 	public void borrar(int id);
+	
+	public void borrarLibro(String titulo, int id);
 }

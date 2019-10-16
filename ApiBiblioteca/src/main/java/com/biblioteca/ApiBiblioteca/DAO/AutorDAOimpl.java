@@ -85,6 +85,18 @@ public class AutorDAOimpl implements AutorDAO {
 		
 		return autor;
 	}
+	
+	@Override
+	public Libro findByNameLibro(String name) 
+	{	
+		Session actual = manager.unwrap(Session.class);
+		
+		Query query= actual.createQuery("from Libro where titulo= :name");
+		query.setParameter("name", name);
+		Libro lib = (Libro) query.uniqueResult();
+		
+		return lib;
+	}
 
 	@Override
 	public void Actualizar(Autor autor) {
@@ -114,6 +126,26 @@ public class AutorDAOimpl implements AutorDAO {
 		actual.beginTransaction();
 		Autor autor = (Autor) actual.get(Autor.class, id);
 		actual.delete(autor); 
+		actual.getTransaction().commit();
+	}
+	
+	@Override
+	public void borrarLibro(String titulo, int id) {
+		// TODO Auto-generated method stub
+		Session actual = manager.unwrap(Session.class); //bien
+		
+		actual.beginTransaction();
+		
+		String comando = "delete from Libro where id_autor = :name AND titulo = :titulo";
+		Query query= actual.createQuery(comando);
+		
+		//System.out.println("titulo :" + titulo + " y id: " + id);
+		
+		query.setParameter("name", id);
+		query.setParameter("titulo", titulo);
+		
+		query.executeUpdate();
+		
 		actual.getTransaction().commit();
 	}
 	

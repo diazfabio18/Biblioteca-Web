@@ -71,6 +71,20 @@ public class AutorRestController {
 			return autor;
 		}
 		
+		/* ******* BUSCADOR DE LIBRO POR NOMBRE ************** */
+		@GetMapping("/libro/search/{LibroName}")
+		public Libro getUserLibro(@PathVariable("LibroName") final String libro_name)
+		{
+			Libro libro = userService.findByNameLibro(libro_name);
+			
+			if(libro == null) {
+				throw new RuntimeException("Libro no encontrado: "+ libro_name);
+			}
+			
+			//retornará al usuario con id pasado en la url
+			return libro;
+		}
+		
 		/*Este método se hará cuando por una petición POST (como indica la anotación) se llame a la url
 		http://127.0.0.1:8080/api/users/  */
 		//@PostMapping("/users")
@@ -126,6 +140,22 @@ public class AutorRestController {
 			
 			//Esto método, recibira el id de un usuario por URL y se borrará de la bd.
 			//return "Deleted user id - "+autorId;
+			
+			return userService.findAll();
+		}
+		
+		/* *************** ELIMINAR LIBRO *************** */ 
+		@GetMapping("libro/delete/{autor}/{titulo_libro}")
+		public List<Autor> deteteLibro(@PathVariable("autor")String nombre, @PathVariable("titulo_libro") String titulo) 
+		{
+			Autor autor = userService.findByName(nombre);
+			
+			if(autor == null) {
+				throw new RuntimeException("Autor no encontrado: "+ nombre);
+			}
+			
+			//problemas
+			userService.deleteLibroById(titulo, autor.getId_autor());
 			
 			return userService.findAll();
 		}

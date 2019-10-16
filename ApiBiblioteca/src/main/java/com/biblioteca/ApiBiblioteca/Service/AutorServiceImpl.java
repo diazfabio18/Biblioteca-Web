@@ -38,6 +38,12 @@ public class AutorServiceImpl implements AutorService {
 		Autor autor = userDAO.findByName(name);
 		return autor;
 	}
+	
+	@Override
+	public Libro findByNameLibro(String name) {
+		Libro libro = userDAO.findByNameLibro(name);
+		return libro;
+	}
 
 	@Override
 	public void save(Autor autor) {
@@ -54,6 +60,12 @@ public class AutorServiceImpl implements AutorService {
 	public void deleteById(int id) {
 		// TODO Auto-generated method stub
 		userDAO.borrar(id);
+	}
+	
+	@Override
+	public void deleteLibroById(String titulo, int id) {
+		// TODO Auto-generated method stub
+		userDAO.borrarLibro(titulo,id);
 	}
 
 }
