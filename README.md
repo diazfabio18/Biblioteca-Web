@@ -18,13 +18,12 @@ _Software necesario para la implementación de esta aplicación_
 
 ## Autor ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Fabio Díaz** - *Desarrollo completo* - [Perfil](https://github.com/diazfabio18)
 
 ## Estado Actual 🛠️
 
 * Metodos get Servicios REST funcionando para entidad Autor
+* Agregado de funcionalidades para entidad Libro
 * Correción en metodo borrar de capa Model
 
 ## Proximamente 📌
