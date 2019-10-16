@@ -36,6 +36,13 @@ public class AutorRestController {
 			return userService.findAll();
 		}
 		
+		/* ************ LISTA DE LIBROS DE UN AUTOR ***************** */
+		@GetMapping("/libro/{userName}")
+		public List<Libro> findAllBookUser(@PathVariable("userName") final String autor){
+			//retornará todos los usuarios
+			return userService.findAllBookUser(autor);
+		}
+		
 		/* ********** BUSCADOR DE AUTOR POR ID**************** */
 		@GetMapping("/users/{userId}")
 		public Autor getUser(@PathVariable("userId") final int autorId)
@@ -50,6 +57,7 @@ public class AutorRestController {
 			return autor;
 		}
 		
+		/* ******* BUSCADOR DE AUTOR POR NOMBRE ************** */
 		@GetMapping("/users/search/{userName}")
 		public Autor getUser(@PathVariable("userName") final String autor_name)
 		{

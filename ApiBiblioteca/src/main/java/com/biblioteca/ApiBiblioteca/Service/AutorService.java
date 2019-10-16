@@ -9,6 +9,8 @@ public interface AutorService {
 
 	public List<Autor> findAll();
 	
+	public List<Libro> findAllBookUser(String autor);
+	
 	public Autor findById(int id);
 	public Autor findByName(String name);
 	

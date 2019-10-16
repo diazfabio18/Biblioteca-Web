@@ -15,8 +15,11 @@ public interface AutorDAO {
 	public void Guardar(Autor autor);
 	public void Guardar(Libro libro);
 	//READ
-	//Listo todos los usuarios
+	//Listo todos los autores
 	public List<Autor> findAll();
+	
+	//Listo todos los libros
+		public List<Libro> findAllBookUser(String autor);
 	
 	//buscar usuario por id
 	public Autor findById(int id);

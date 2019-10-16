@@ -20,6 +20,12 @@ public class AutorServiceImpl implements AutorService {
 		List<Autor> listUsers= userDAO.findAll();
 		return listUsers;
 	}
+	
+	@Override
+	public List<Libro> findAllBookUser(String autor) {
+		List<Libro> listUsers= userDAO.findAllBookUser(autor);
+		return listUsers;
+	}
 
 	@Override
 	public Autor findById(int id) {

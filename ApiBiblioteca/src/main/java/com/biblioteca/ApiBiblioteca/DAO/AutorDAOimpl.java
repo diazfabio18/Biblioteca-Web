@@ -45,6 +45,24 @@ public class AutorDAOimpl implements AutorDAO {
 		return autores;
 
 	}
+	
+	@Override
+	public List<Libro> findAllBookUser(String nombre) {
+		// TODO Auto-generated method stub
+		Session actual = manager.unwrap(Session.class);
+
+		Query<Libro> consulta = actual.createQuery("from Libro where id_autor = :name");
+		
+		Autor autor = (Autor) findByName(nombre);
+		
+		consulta.setParameter("name", autor.getId_autor());
+		
+		
+		List<Libro> libros = consulta.getResultList();
+		
+		return libros;
+
+	}
 
 	@Override
 	public Autor findById(int id) {
