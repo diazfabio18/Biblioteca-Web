@@ -28,7 +28,8 @@ _Software necesario para la implementación de esta aplicación_
 
 ## Proximamente 📌
 
-* Implementación de servicio y puesta en marcha con JSON
+* Puesta en marcha con JSON (por metodo POST)
+* Documentación con Swagger
 * Implementación Front-End con Boostratp 4 y Angular 6
 * Expansión a mas de un tipo de DBMS
 * Puesta en producción
