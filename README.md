@@ -1,35 +1,35 @@
-# Biblioteca-Web
-_Web App para sistema de almacenamiento de libros, mediante api REST_
+# Web Library
+ Storage system for books, with querys to database through api REST
 
-### Software 📋
+### Software and Tools📋
 
-_Software necesario para la implementación de esta aplicación_
+Minimal requeriments
 
-* Java 1.8
-* Spring Tools Suite 4
-* MySQL Workbench 8.0
+- Java 1.8
+- Spring Tools Suite 4
+- MySQL Workbench 8.0
 
-## Técnologías implementadas 🛠️
+## Implement technologies 🛠️
 
-* [Spring Boot 4](https://spring.io/projects/spring-boot) - El framework para autoconfiguracion de Server y dependencias
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [Hibernate](https://hibernate.org/) - El framework para mapeo ORM
-* [REST](https://spring.io/guides/gs/rest-service/) - Servicios para ser consumidos por el Front-End
+- [Spring Boot 4](https://spring.io/projects/spring-boot) - The framework for auto-configuration to Server and dependencies
+- [Maven](https://maven.apache.org/) - Handler of dependencies
+- [Hibernate](https://hibernate.org/) - Framework for map ORM
+- [REST](https://spring.io/guides/gs/rest-service/) - Services to be consumed by Front-End
+- [SQL]() for database relational
 
-## Autor ✒️
+## About autor ✒️
 
-* **Fabio Díaz** - *Desarrollo completo* - [Perfil](https://github.com/diazfabio18)
+- **Fabio Díaz** [Perfil](https://github.com/diazfabio18)
 
-## Estado Actual 🛠️
+## Current State 🛠️
 
-* Metodos get Servicios REST funcionando para entidad Autor
-* Agregado de funcionalidades para entidad Libro
-* Correción en metodo borrar de capa Model
+- Get methods working for entity Autor
+- Aggregate of funcionalities for entity Libro
+- Correction on method borrar of cap Model
 
-## Proximamente 📌
+## Soon 📌
 
-* Puesta en marcha con JSON (por metodo POST)
-* Documentación con Swagger
-* Implementación Front-End con Boostratp 4 y Angular 6
-* Expansión a mas de un tipo de DBMS
-* Puesta en producción
+- Putting in working data JSON (by method POST)
+- Implement with Front-End Boostratp 4 and Angular 6
+- Expansion to more a tipe of DBMS
+- Start up production
